@@ -5,6 +5,8 @@ $(function(){
 
         let addItem = $('#shopping-list-entry').val();
 
+        $('#shopping-list-entry').val('');
+
         $('.shopping-list').append(`<li>
         <span class="shopping-item">${addItem}</span>
         <div class="shopping-item-controls">
@@ -16,26 +18,13 @@ $(function(){
           </button>
         </div>
       </li>`)
-
-        
-
-
     });
 
-
-
     $('.shopping-list').on('click', '.shopping-item-delete', function(event){
-      this.closest('li').remove();
+      $(this).closest('li').remove();
+    });
 
-  });
-
-  $('.shopping-list').on('click', '.shopping-item-toggle', function(event){
+    $('.shopping-list').on('click', '.shopping-item-toggle', function(event){
       $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
-  });
-
-
-
-
-
-
+    });
 });
